@@ -1,0 +1,57 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+<NodeDevelopRules>
+  <Principles>
+    <SingleResponsibility>단일 책임 원칙을 준수하라.</SingleResponsibility>
+  </Principles>
+
+  <Package>
+    <Manager>pnpm</Manager>
+  </Package>
+
+  <TypeRules>
+    <UseTypeKeyword>true</UseTypeKeyword>
+    <SemanticAlias>원시 타입 및 복합 타입 모두 의미론적인 alias를 한다.</SemanticAlias>
+  </TypeRules>
+
+  <NamingRules>
+    <AvoidSuffixes>
+      <Suffix>Info</Suffix>
+      <Suffix>Data</Suffix>
+    </AvoidSuffixes>
+    <Examples>
+      <Invalid>UserInfo</Invalid>
+      <Valid>User</Valid>
+      <Invalid>LogData</Invalid>
+      <Valid>Log</Valid>
+    </Examples>
+  </NamingRules>
+
+  <TestRules>
+    <Frameworks>
+      <Framework>vitest</Framework>
+      <Language>ts</Language>
+    </Frameworks>
+    <FileNaming>.spec</FileNaming>
+    <Independence>각 유닛 테스트 간에도 서로 테스트에 의존성이나 결합을 가지면 안 된다.</Independence>
+    <Structure>
+      <DescribeLevel1>파일명</DescribeLevel1>
+      <DescribeLevel2>함수명</DescribeLevel2>
+      <Example>
+        <![CDATA[
+describe("fileName", () => {
+  describe("functionName", () => 
+    it("무엇을 검증하는지 간단한 설명"))
+})
+        ]]>
+      </Example>
+    </Structure>
+    <Pattern>Give, When, Then 구조를 적용한다.</Pattern>
+    <ExpectLimit>하나의 테스트는 최대 2개의 Expect 를 사용한다.</ExpectLimit>
+    <Simplicity>복잡한 테스트 대신, 간단한 테스트 케이스를 여러개 사용한다.</Simplicity>
+    <Verification>테스트 코드는 경향성과 필수적인 요소만 검증한다.</Verification>
+  </TestRules>
+</NodeDevelopRules>
